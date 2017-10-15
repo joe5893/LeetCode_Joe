@@ -24,7 +24,7 @@ int lengthOfLongestSubstring(char* s) {
 	int maxlen = 0;
 
 	while(1){
-		int len = lengthOfOneSubstring(s,0,&nextStart);
+		int len = lengthOfOneSubstring(s,&nextStart);
 		if(len > maxlen){
 			maxlen = len;
 		}
@@ -38,13 +38,15 @@ int lengthOfLongestSubstring(char* s) {
 	return maxlen;
 }
 
-int lengthOfOneSubstring(char *s,int start,int *nextStart){
+int lengthOfOneSubstring(char *s,int *nextStart){
 	int i,j; 
 	int len = 0;
 	int stop = 0;
 	int slen = strlen(s);
-	for(i=start;i<slen;i++){		
-		for(j=start;j<i;j++){//检查有没有重复的字符 
+	
+	//下面用到2重循环 
+	for(i=0;i<slen;i++){		
+		for(j=0;j<i;j++){//检查有没有重复的字符 
 			if(s[i] == s[j]){
 				stop = 1;
 				break;
