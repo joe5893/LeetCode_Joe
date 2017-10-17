@@ -28,7 +28,7 @@ int lengthOfLongestSubstring(char* s) {
 		if(len > maxlen){
 			maxlen = len;
 		}
-		s+=nextStart;
+		s+=1;//nextStart;
 		totlelen += len;		
 		if(totlelen>=slen)
 		{
@@ -38,7 +38,7 @@ int lengthOfLongestSubstring(char* s) {
 	return maxlen;
 }
 
-int lengthOfOneSubstring(char *s,int *nextStart){
+int lengthOfOneSubstring(char *s,int *nextStart){//其实不用nextStart，代码还可以简化 
 	int i,j; 
 	int len = 0;
 	int stop = 0;
@@ -68,6 +68,10 @@ int main(int argc, char *argv[]) {
 	int maxlen = 0;
 	char *s = "abcabcbb";	
 	
+    maxlen = lengthOfLongestSubstring(s);	
+	printf("%s,%d\n",s,maxlen);
+	
+	s = "dvdf";//"abcabcbb";		
     maxlen = lengthOfLongestSubstring(s);	
 	printf("%s,%d\n",s,maxlen);
 	
